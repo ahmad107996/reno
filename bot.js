@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const suck = JSON.parse(fs.readFileSync('./suck.json', 'utf8'));
 const prefix = "r#";
 // Toxic Codes
 client.on('ready', () => {
@@ -9,24 +8,9 @@ client.on('ready', () => {
           client.user.setActivity("Rainbow , r#help .",{type: 'WATCHING'});
   
   });// Toxic Codes
-client.on("message", message => {
-    fs.writeFile('./suck.json', JSON.stringify(suck));
-});
+
 // Toxic Codes
-client.on('ready', () => {
-    setInterval(function(){
-        client.guilds.forEach(g => {
-            if (suck[g.id]) {
-                if (suck[g.id].role) {// Toxic Codes
-                    var role = g.roles.get(suck[g.id].role);
-                    if (role) {
-                        role.edit({color : "RANDOM"});
-                    };// Toxic Codes
-                };// Toxic Codes 
-            };// Toxic Codes
-        });
-    }, 4000);// Toxic Codes
-})
+
 
 client.on("message", message => {
     if (!message.content.startsWith(prefix)) return;
