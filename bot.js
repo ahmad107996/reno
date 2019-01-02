@@ -53,7 +53,7 @@ if(!message.channel.guild) return;
 
 }
 message.channel.send('**تم رتبه Rinbow تعمل الان**')//if the step completed
-}})
+}});
 
 client.on('ready', () => {//new ready event
   setInterval(function(){
