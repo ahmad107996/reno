@@ -23,7 +23,6 @@ client.on("message", message => {
         if(!message.member.hasPermission('ADMINSTRATOR')) return message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINSTRATOR`' );
         message.guild.createRole({name : "RainbowBot .", color : "RANDOM"}).then(r => {// Toxic Codes
             r.edit({color : "RANDOM"});
-            suck[message.guild.id] = {role : r.id};// Toxic Codes
         });// Toxic Codes
     };// Toxic Codes
 });// Toxic Codes
