@@ -74,7 +74,6 @@ r#set
 r#inv 
 - لدعوة البوت
 - To Invite the bot
-// Toxic Codes// Toxic Codes// Toxic Codes
 خطوات لو الرتبة م أشتغلت .!!
 1- ضع رتبة الرينبو فوق الالوان أو الرتب الملونه لو فيه// Toxic Codes
 2- ضع رتبة البوت فوق رتبة الرينبو
