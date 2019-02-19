@@ -16,15 +16,15 @@ client.on('message', async message => {
     if (message.content === `${prefix}register`) {
         if (account[message.author.id].reg === true) return message.channel.send('❌ | لديك حساب مٌسجل بالفعل...');
         if (message.author.bot) return;
-        const args = message.content.split(' ').slice(prefix.length);
+        const args = message.content.split(' ').slice(1);
         if (!args[0]) return message.channel.send('❌ | أدخل إسم للتسجيل به.');
         if (args[0]) {
             account[message.author.id].reg = true;
             account[message.author.id].name = args;
             await saveChanges();
-            message.channel.send('تم تسجيل الحساب !!');
+            message.channel.send('You have registred your account !');
         }
-    } else if (message.content === `${prefix}ping`) {
+    } else if (message.content === `${prefix}ping`) { // Example on usage | مثال على الأوامر :
         if (account[message.author.id].reg === false) return message.channel.send('❌ | يجب أن تكون مٌسجل لإستخدام هذا الأمر');
         message.channel.send('PONG');
     }
