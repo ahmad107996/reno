@@ -3,8 +3,6 @@ const client = new Discord.Client();
 const fs = require('fs');
 const prefix = "r#";
 
-const fs = require('fs'); // npm i fs
-const prefix = '='; // you can change this
 const account = JSON.parse(fs.readFileSync('./account.json', 'utf8')); // create " account.json " folder and put into it " {} "
 
 client.on('message', async message => {
