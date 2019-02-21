@@ -16,19 +16,25 @@ client.on('message', async message => {
     if (message.content === `${prefix}register`) {
         if (account[message.author.id].reg === true) return message.channel.send('❌ | لديك حساب مٌسجل بالفعل...');
         if (message.author.bot) return;
-        const args = message.content.split(' ').slice(1);
+        const args = message.content.split(' ').slice(prefix.length);
         if (!args[0]) return message.channel.send('❌ | أدخل إسم للتسجيل به.');
         if (args[0]) {
             account[message.author.id].reg = true;
             account[message.author.id].name = args;
             await saveChanges();
-            message.channel.send('You have registred your account !');
+            message.channel.send('تم تسجيل الحساب !!');
         }
-    } else if (message.content === `${prefix}ping`) { // Example on usage | مثال على الأوامر :
+    } else if (message.content === `${prefix}ping`) {
         if (account[message.author.id].reg === false) return message.channel.send('❌ | يجب أن تكون مٌسجل لإستخدام هذا الأمر');
         message.channel.send('PONG');
     }
 });
+
+function saveChanges() {
+    return fs.writeFile('./account.json', JSON.stringify(account), error => {
+        if (error) console.log(error);
+    });
+}
 
 function saveChanges() {
     return fs.writeFile('./account.json', JSON.stringify(account), error => {
