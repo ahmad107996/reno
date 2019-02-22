@@ -35,12 +35,6 @@ function saveChanges() {
         if (error) console.log(error);
     });
 }
-
-function saveChanges() {
-    return fs.writeFile('./account.json', JSON.stringify(account), error => {
-        if (error) console.log(error);
-    });
-}
 // Toxic Codes
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag} !`);
@@ -97,7 +91,7 @@ message.channel.send('**تم رتبه Rinbow تعمل الان**')//if the step 
 client.on('ready', () => {//new ready event
   setInterval(function(){
       client.guilds.forEach(g => {
-                  var role = g.roles.find('name', 'Rainbow');//rainbow role name
+                  var role = g.roles.find(role => role.name == "Rainbow");//rainbow role name
                   if (role) {
                       role.edit({color : "RANDOM"});
                   };
